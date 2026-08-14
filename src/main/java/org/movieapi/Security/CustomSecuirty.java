@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class CustomSeuirtyConfig {
+public class CustomSecuirty {
 
     private final UserDetailsService userDetailsService;
     private final AuthFilterService authFilterService;
@@ -31,11 +31,12 @@ public class CustomSeuirtyConfig {
 
 
     @Bean
-    public SecurityFilterChain springSecurityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.
                 csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> {
                     request.requestMatchers( "api/v1/auth/**").permitAll();
+                    request.requestMatchers( "api/movie/all").permitAll();
                     request.requestMatchers(HttpMethod.POST , "api/v1/register").permitAll();
                     request.anyRequest().authenticated();
                 }).sessionManagement(session -> session.

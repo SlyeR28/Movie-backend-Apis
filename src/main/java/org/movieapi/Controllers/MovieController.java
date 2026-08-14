@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.movieapi.Exceptions.EmptyFileException;
 import org.movieapi.Payloads.Request.MovieRequest;
 import org.movieapi.Payloads.Response.ApiResponse;
